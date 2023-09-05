@@ -12,7 +12,7 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 const NavBar = () => {
   return (
     <div>
-        <Flex>
+        <Flex className='nav'>
             <Box p='4'>
                 <Menu>
                     <MenuButton>
@@ -27,7 +27,7 @@ const NavBar = () => {
             </Box>
             <Spacer />
             <Box p='4'>
-                <h1>Ropa-Store</h1>
+                <h2>Ropa-Store</h2>
             </Box>
             <Spacer />
             <Box p='4'>
