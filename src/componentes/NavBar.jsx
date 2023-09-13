@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import CartWidget from './CartWidget'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
@@ -19,19 +20,35 @@ const NavBar = () => {
                         <HamburgerIcon />
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Tienda</MenuItem>
-                        <MenuItem>Contacto</MenuItem>
-                        <MenuItem>Quienes Somos</MenuItem>
+                        <MenuItem>
+                            <Link to={"/"}>
+                                Inicio
+                            </Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to={`/categoria/${"A"}`}>
+                                Categoria A
+                            </Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to={`/categoria/${"B"}`}>
+                                Categoria B
+                            </Link>
+                        </MenuItem>
                     </MenuList>
                 </Menu>   
             </Box>
             <Spacer />
             <Box p='4'>
-                <h2>Ropa-Store</h2>
+                <Link to={"/"}>
+                    <h2>Ropa-Store</h2>
+                </Link>
             </Box>
             <Spacer />
             <Box p='4'>
-            <CartWidget/>
+                <Link to={`/Cart`}>
+                    <CartWidget/>
+                </Link>
             </Box>
         </Flex>
     </div>

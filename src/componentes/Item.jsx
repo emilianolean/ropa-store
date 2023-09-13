@@ -1,8 +1,13 @@
 import React from 'react'
-import {Card, Image, Stack, Text, CardBody, Divider, Button, ButtonGroup, CardFooter, Heading, Center,} from "@chakra-ui/react"
+import {Card, Image, Stack, Text, CardBody, Divider, Button, ButtonGroup, CardFooter, Heading} from "@chakra-ui/react"
+import { Link } from 'react-router-dom'
+
 
 const Item = ({ producto }) => {
+
+    console.log(producto)
   
+
     return (
     <div>
         <Card maxW='sm'>
@@ -12,9 +17,11 @@ const Item = ({ producto }) => {
                     borderRadius='lg'
                 />
                 <Stack mt='6' spacing='3'>
-                    <Heading size='md'>{producto.title}</Heading>
-                    <Text color='blue.600' fontSize='2xl'>
-                        $ {producto.price}
+                    <Heading size='md'>{producto.nombre}</Heading>
+                    <Text>
+                    </Text>
+                    <Text color='blue.700' fontSize='2xl'>
+                        ${producto.precio}
                     </Text>
                 </Stack>
             </CardBody>
@@ -22,7 +29,7 @@ const Item = ({ producto }) => {
             <CardFooter>
                 <ButtonGroup spacing='2'>
                     <Button variant='solid' colorScheme='blue'>
-                        Comprar
+                        <Link to={`/item/${producto.id}`}>Comprar</Link>
                     </Button>
                 </ButtonGroup>
             </CardFooter>
