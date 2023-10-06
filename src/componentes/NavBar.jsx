@@ -26,13 +26,18 @@ const NavBar = () => {
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                            <Link to={`/categoria/${"A"}`}>
-                                Categoria A
+                            <Link to={`/Categoria/${"A"}`}>
+                                Remeras
                             </Link>
                         </MenuItem>
                         <MenuItem>
-                            <Link to={`/categoria/${"B"}`}>
-                                Categoria B
+                            <Link to={`/Categoria/${"B"}`}>
+                                Buzos
+                            </Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to={"/Form"}>
+                            Formulario
                             </Link>
                         </MenuItem>
                     </MenuList>

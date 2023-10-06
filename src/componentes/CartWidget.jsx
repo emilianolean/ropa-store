@@ -1,8 +1,12 @@
-import { Divider, Flex, Box } from '@chakra-ui/react'
+import { Divider, Flex, Box, Link } from '@chakra-ui/react'
 import React from 'react'
 
+
 const CartWidget = () => {
+
+    //contador
   return (
+    <Link to="/cart">
         <div>
             <Flex>
                 <Box>
@@ -16,6 +20,8 @@ const CartWidget = () => {
                 </Box>
             </Flex>
         </div>
+    </Link>
+        
     )
 }
 

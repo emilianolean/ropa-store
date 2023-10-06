@@ -13,12 +13,17 @@ const ItemCount = () => {
     
   return (
     <>
-    <div className='d-flex'>
+    <div className='d-grid gap-2'>
       <div>
-        <button variant='dark' onClick={sumar}>+
+        <button className='btn btn-primary' onClick={sumar}>+
         </button>
-        <p className='btn'>{contador}</p>
-        <button variant='dark' onClick={restar}>-</button>
+        <span className='btn btn-light'> {contador} </span>
+        <button className='btn btn-primary' onClick={restar}>-</button>
+          <div>
+            <button className='btn btn-light' onClick={() => alert(`Cantidad agregada ${contador}`)}>
+              Añadir al carrito
+            </button>
+          </div>
       </div>
     </div>
     </>

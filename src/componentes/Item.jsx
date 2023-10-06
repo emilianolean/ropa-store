@@ -3,25 +3,24 @@ import {Card, Image, Stack, Text, CardBody, Divider, Button, ButtonGroup, CardFo
 import { Link } from 'react-router-dom'
 
 
-const Item = ({ producto }) => {
+const Item = ({producto}) => {
 
-    console.log(producto)
-  
+  console.log(producto)
 
     return (
     <div>
         <Card maxW='sm'>
             <CardBody>
                 <Image
-                    src={producto.image}
+                    src={producto.img}
                     borderRadius='lg'
                 />
                 <Stack mt='6' spacing='3'>
-                    <Heading size='md'>{producto.nombre}</Heading>
+                    <Heading size='md'>{producto.Nombre}</Heading>
                     <Text>
                     </Text>
                     <Text color='blue.700' fontSize='2xl'>
-                        ${producto.precio}
+                        ${producto.Precio}
                     </Text>
                 </Stack>
             </CardBody>

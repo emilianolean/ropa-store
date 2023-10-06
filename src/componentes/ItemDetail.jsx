@@ -1,47 +1,37 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import IteamCount from './ItemCount'
-import {Card, CardBody, CardFooter, Stack, Image, Divider, Button, ButtonGroup, Heading, Text} from "@chakra-ui/react"
+import {Card, CardBody, CardFooter, Stack, Divider, Button, Heading, Text} from "@chakra-ui/react"
 import { useParams } from 'react-router-dom'
 
-const ItemDetail = ({ productos }) => {
+
+const ItemDetail = ({ producto }) => {
     const { id } = useParams()
     
-    const filteredProducts = productos.filter((producto) => producto.id == id)
-
     return (
         <div>
-            {filteredProducts.map((p) =>{
-
-                return (
-                    <div key={p.id}>
+            <div className="d-flex justify-content-center align-items-center" style={{ height: '700px', width: 'auto' }} key={id}>
                         <Card maxW='sm'>
                             <CardBody>
-                                <Stack mt='6' spacing='3'>
-                                    <Heading size='md'>{p.nombre}</Heading>
+                                <Stack mt='6' spacing='2'>
+                                    <Heading size='md'>{producto.Nombre}</Heading>
                                     <Text color='blue.600' fontSize='2xl'>
-                                        $ {p.precio}
+                                        $ {producto.Precio}
                                     </Text>
                                     <Text color='blue.600' fontSize='2xl'>
-                                        {p.category}
+                                        {producto.Category}
                                     </Text>
+                                    <img src={producto.img} alt="" />
                                     <Text>
-                                        {p.descripcion}
+                                        {producto.descripcion}
                                     </Text>
-                                </Stack>
+                                    </Stack>
                             </CardBody>
                             <Divider />
                             <CardFooter>
-                                <ButtonGroup spacing='2'>
-                                    <Button variant='solid' colorScheme='blue'>
-                                        Comprar
-                                    </Button>
-                                </ButtonGroup>
                                 <IteamCount/>
                             </CardFooter>
                         </Card>
-                    </div>
-                )
-            })}
+            </div>
         </div>
     )
 }

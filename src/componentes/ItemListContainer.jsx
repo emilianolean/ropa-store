@@ -1,43 +1,36 @@
 import ItemList from './ItemList' 
 import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
+
 
 const ItemListContainer = () => {
   const { categoria } = useParams()
+  const [products, setProducts] = useState([])
+  console.log(products)
 
+
+  useEffect(() => {
+    const db = getFirestore();
+    const itemsCollection = collection(db, "ropa");
+
+    getDocs(itemsCollection)
+      .then((snapshot) => {
+        const docs = snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+        setProducts(docs);
+      })
+  }, []);
+
+  const filteredProducts = products.filter((producto) => producto.Categoria === categoria)
   console.log(categoria)
-
-  const productos = [
-    { id: 1, nombre: "Producto A", precio: "5000", descripcion: "Descripcion de producto A", categoria: "A"},
-    { id: 2, nombre: "Producto B", precio: "5000", descripcion: "Descripcion de producto B", categoria: "A"},
-    { id: 3, nombre: "Producto C", precio: "5000", descripcion: "Descripcion de producto C", categoria: "B"},
-    { id: 4, nombre: "Producto D", precio: "5000", descripcion: "Descripcion de producto D", categoria: "B"},
-  ]
-  
-  const getProductos = new Promise((resolve, reject) => {
-    if (productos.length > 0) {
-        setTimeout(() => {
-          resolve(productos)
-        }, 2000)
-    } else {
-      reject(new Error("No hay datos"))
-    }
-  })
-
-  getProductos
-    .then((res) => {
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  
-  const filteredProducts = productos.filter((producto) => producto.categoria === categoria)
   return (
     <>
-      <h1>Bienvenidos</h1>
+      <h2 className='text-center'>¡Bienvenidos a nuestra tienda de ropa!</h2>
       {
-        categoria ? <ItemList productos={filteredProducts} /> : <ItemList productos={productos} />
+        categoria ? <ItemList productos={filteredProducts} /> : <ItemList productos={products} />
       }
-
     </>
   )
 }
