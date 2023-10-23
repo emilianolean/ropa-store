@@ -1,9 +1,12 @@
 import React from 'react'
+import TableCart from './TableCart';
 
 const Cart = () => {
   return (
-    <div>MI CARRITO</div>
-  )
-}
+    <>
+      <TableCart></TableCart>
+    </>
+  );
+};
 
 export default Cart

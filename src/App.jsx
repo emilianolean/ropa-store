@@ -4,11 +4,11 @@ import ItemListContainer from "./componentes/ItemListContainer"
 import NavBar from "./componentes/NavBar"
 import Cart from "./componentes/Cart"
 import Form from "./componentes/Form"
-import ShoppingCartContext from "./context/ShoppingCartContext"
-import ShoppingCartProvider from "./context/ShoppingCartContext"
+import ShoppingCartProvider from "./componentes/context/ShoppingCartContext"
 
 const App = () => {
   return (
+    <>
     <ShoppingCartProvider>
       <BrowserRouter>
         <NavBar />
@@ -19,9 +19,9 @@ const App = () => {
           <Route exact path="/item/:id" element={<ItemDetailContainer />} />
           <Route exact path='/Form' element={<Form />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
     </ShoppingCartProvider>
-    
+    </>
     
   )
 }

@@ -6,7 +6,7 @@ import {
     MenuItem,
     Flex, Box, Spacer
 } from '@chakra-ui/react'
-import CartWidget from './CartWidget'
+import  CartWidget  from './CartWidget'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
 

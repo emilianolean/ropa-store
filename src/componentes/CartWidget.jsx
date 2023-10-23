@@ -1,10 +1,10 @@
-import { Divider, Flex, Box, Link } from '@chakra-ui/react'
-import React from 'react'
-
+import { ShoppingCartContext } from "./context/ShoppingCartContext";
+import { useContext } from "react";
+import { Divider, Flex, Box, Link } from '@chakra-ui/react';
 
 const CartWidget = () => {
+  const { totalQuantity } = useContext(ShoppingCartContext);
 
-    //contador
   return (
     <Link to="/cart">
         <div>
@@ -16,13 +16,12 @@ const CartWidget = () => {
                 </Box>
                 <Divider />
                 <Box>
-                    <p>7</p>
+                    <p className="cantCart">{totalQuantity}</p>
                 </Box>
             </Flex>
         </div>
     </Link>
-        
-    )
-}
+  );
+};
 
-export default CartWidget
+export default CartWidget;
