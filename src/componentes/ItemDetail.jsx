@@ -27,7 +27,7 @@ const ItemDetail = () => {
     
     return (
         <div>
-            <div className="d-flex justify-content-center align-items-center" style={{ height: '900px', width: 'auto' }} key={id}>
+            <div className="d-flex justify-content-center align-items-center" style={{ height: '900px', width: 'auto' }} key={producto.id}>
                         <Card maxW='sm'>
                             <CardBody>
                                 <Stack mt='6' spacing='2'>
@@ -46,7 +46,10 @@ const ItemDetail = () => {
                             </CardBody>
                             <Divider />
                             <CardFooter>
-                                <IteamCount/>
+                                <IteamCount id={producto.id}
+                                    nombre={producto.Nombre}
+                                    precio={producto.Precio}>
+                                </IteamCount>
                             </CardFooter>
                         </Card>
             </div>

@@ -28,10 +28,10 @@ const TableCart = () => {
 return (
   <div className="mainCartEntero">
   <div className="cartMain">
-    <TableContainer width='100%'>
+    <TableContainer width='120%'>
       <Table variant="simple">
         <Tr>
-          <Th width='20%' borderColor='black'>Producto</Th>
+          <Th width='10%' borderColor='black'>Producto</Th>
           <Th width='20%' borderColor='black' isNumeric>Precio</Th>
           <Th width='20%' borderColor='black' isNumeric>Cantidad</Th>
           <Th width='20%' borderColor='black' isNumeric>Total</Th>
@@ -45,7 +45,7 @@ return (
           <Thead></Thead>
           <Tbody>
             <Tr>
-              <Td width='20%' borderColor='black' isNumeric>{producto.nombre}</Td>
+              <Td width='10%' borderColor='black' isNumeric>{producto.nombre}</Td>
               <Td width='20%' borderColor='black' isNumeric>${producto.precio}</Td>
               <Td width='20%' borderColor='black' isNumeric>{producto.quantity}</Td>
               <Td width='20%' borderColor='black' isNumeric>${producto.precio * producto.quantity}</Td>
@@ -65,11 +65,11 @@ return (
     <TableContainer width='100%'>
       <Table variant="simple">
         <Tr>
-          <Th width='20%' borderColor='black'></Th>
+          <Th width='15%' borderColor='black'></Th>
           <Th width='20%' borderColor='black' isNumeric></Th>
           <Th width='20%' borderColor='black' fontSize='bold' color='black' isNumeric>{TotalQuantity}</Th>
-          <Th width='20%' borderColor='black' fontSize='bold' color='black' isNumeric>{total}</Th>
-          <Th width='20%' borderColor='black' fontSize='large' color='black'><button className="eliminarCarrito btn btn-danger" onClick={clearCart}>Borrar todo</button></Th>
+          <Th width='20%' borderColor='black' fontSize='bold' color='black' isNumeric>${total}</Th>
+          <Th width='21%' borderColor='black' fontSize='large' color='black'><button className="eliminarCarrito btn btn-danger" onClick={clearCart}>Borrar todo</button></Th>
         </Tr>
       </Table>
     </TableContainer>

@@ -31,9 +31,8 @@ const Form = () => {
                 <input type="text" placeholder='Nombre' onChange={(e)=>setNombre(e.target.value)} />
                 <input type="email" placeholder='Email' onChange={(e)=> setEmail(e.target.value)} />
 
-                <button type='submit'>Enviar</button>
+                <button className= "enviarForm" type='submit'>Enviar</button>
             </form>
-
             <h3>Id de tu compra:{orderId}</h3>
         </>
     )
