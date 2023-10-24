@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useState } from "react";
 import Swal from "sweetalert2";
 
 export const ShoppingCartContext = createContext({
@@ -19,7 +19,7 @@ const ShoppingCartProvider = ({ children }) => {
   };
 
   const removeItem = (itemId) => {
-    const cartUpdated = cart.filter((prod) => prod.id !== itemId);
+    const cartUpdated = cart.filter((producto) => producto.id !== itemId);
     setCart(cartUpdated);
   };
 
@@ -62,15 +62,17 @@ const ShoppingCartProvider = ({ children }) => {
   };
 
   const isInCart = (itemId) => {
-    return cart.some((prod) => prod.id === itemId);
+    return cart.some((producto) => producto.id === itemId);
   };
+
+  const total = cart.reduce((total, item) => total + (item.precio * item.quantity), 0);
 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   
   return (
     <>
-      <ShoppingCartContext.Provider value={{ cart, addItem, removeItem, clearCart, totalQuantity }}>
-        {children}
+      <ShoppingCartContext.Provider value={{ cart, addItem, removeItem, clearCart, total, totalQuantity }}>
+        { children }
       </ShoppingCartContext.Provider>
     </>
   );

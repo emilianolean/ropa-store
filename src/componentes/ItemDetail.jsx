@@ -2,14 +2,32 @@ import React, { useContext } from 'react'
 import IteamCount from './ItemCount'
 import {Card, CardBody, CardFooter, Stack, Divider, Button, Heading, Text} from "@chakra-ui/react"
 import { useParams } from 'react-router-dom'
+import { ShoppingCartContext } from './context/ShoppingCartContext'
+import { doc, getDoc, getFirestore } from "firebase/firestore"
+import { useEffect, useState } from 'react'
 
 
-const ItemDetail = ({ producto }) => {
-    const { id } = useParams()
+const ItemDetail = () => {
+    const [producto, setProduct] = useState([]);
+    const { id } = useParams();
+
+    useEffect(() => {
+        const db = getFirestore();
+
+        const oneItem = doc(db, "ropa", `${id}`);
+        getDoc(oneItem).then((snapshot) => {
+        if (snapshot.exists()) {
+            const docs = snapshot.data();
+            setProduct(docs);
+        } else {
+            console.log("Producto no encontrado");
+        }
+        });
+    }, [id]);
     
     return (
         <div>
-            <div className="d-flex justify-content-center align-items-center" style={{ height: '700px', width: 'auto' }} key={id}>
+            <div className="d-flex justify-content-center align-items-center" style={{ height: '900px', width: 'auto' }} key={id}>
                         <Card maxW='sm'>
                             <CardBody>
                                 <Stack mt='6' spacing='2'>

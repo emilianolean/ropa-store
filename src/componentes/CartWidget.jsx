@@ -16,7 +16,7 @@ const CartWidget = () => {
                 </Box>
                 <Divider />
                 <Box>
-                    <p className="cantCart">{totalQuantity}</p>
+                    <p className="cantCart">{ totalQuantity }</p>
                 </Box>
             </Flex>
         </div>

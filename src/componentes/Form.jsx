@@ -27,7 +27,7 @@ const Form = () => {
     return (
         <>
             <h1>Formulario</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="Formulario" onSubmit={handleSubmit}>
                 <input type="text" placeholder='Nombre' onChange={(e)=>setNombre(e.target.value)} />
                 <input type="email" placeholder='Email' onChange={(e)=> setEmail(e.target.value)} />
 

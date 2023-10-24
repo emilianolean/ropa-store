@@ -35,11 +35,6 @@ const NavBar = () => {
                                 Buzos
                             </Link>
                         </MenuItem>
-                        <MenuItem>
-                            <Link to={"/Form"}>
-                            Formulario
-                            </Link>
-                        </MenuItem>
                     </MenuList>
                 </Menu>   
             </Box>
